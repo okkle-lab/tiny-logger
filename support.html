@@ -4,37 +4,114 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tiny Logger Support</title>
-  <style>
-    body { max-width: 800px; margin: 48px auto; padding: 0 22px; font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:#1d1d1f; background:#fff; }
-    h1 { font-size: 40px; margin-bottom: 0; }
-    h2 { margin-top: 40px; font-size: 25px; }
-    h3 { margin-top: 26px; font-size: 19px; }
-    .note { background:#f3f1ff; border-radius:16px; padding:18px 20px; }
-    .urgent { background:#fff3f3; border-radius:16px; padding:18px 20px; }
-    a { color:#5146e5; }
-    footer { margin:48px 0 24px; color:#6e6e73; font-size:14px; }
-  </style>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <h1>Tiny Logger Support</h1>
-  <p>Help for tracking your child’s care, health records, growth, sleep, milestones, and family memories.</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./">
+        <span class="brand-mark">✦</span>
+        <span>Tiny Logger</span>
+      </a>
+      <nav>
+        <a href="./">Privacy</a>
+        <a href="./support.html">Support</a>
+        <a href="mailto:admin@okklelab.com">Contact us</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="urgent">
-    <strong>Need urgent medical help?</strong><br>
-    Tiny Logger is not a medical service and does not replace a doctor. If a child is seriously unwell, has breathing difficulty, is unresponsive, has blue/grey skin or lips, or you are worried, contact emergency services or local urgent medical care immediately.
-  </div>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Support</div>
+      <h1>Help for every little moment.</h1>
+      <p class="lead">
+        Tiny Logger helps families record care, health information, growth,
+        sleep, milestones, and memories in one private place.
+      </p>
+      <a class="button" href="mailto:admin@okklelab.com">Email support</a>
+    </section>
 
-  <h2>Getting started</h2>
-  <p>Create a child profile, choose the relevant care stage, and select the Quick Logs you want to use. Each child has separate logs, health records, settings, and optional Apple Health / Apple Watch assignment.</p>
+    <section class="callout warning">
+      <h2>Need urgent medical help?</h2>
+      <p>
+        Tiny Logger is not a medical service and does not replace a doctor.
+        If a child is seriously unwell or you are worried, contact local
+        urgent medical care or emergency services immediately.
+      </p>
+    </section>
 
-  <h2>Using Tiny Logger</h2>
+    <section class="grid">
+      <article class="card">
+        <h2>Quick Logs</h2>
+        <p>Record feeds, nappies, pumping, food, vitamins, sleep, weight, height, and other care events relevant to your child’s stage.</p>
+      </article>
 
-  <h3>Today and Quick Log</h3>
-  <p>Use Quick Log to record feeds, nappies, pumping, food, vitamins, sleep, weight, height, and other care events available for your child’s stage. The Today screen highlights current care information and upcoming patterns only when enough previous entries exist.</p>
+      <article class="card">
+        <h2>Health records</h2>
+        <p>Keep medications, allergies, vaccinations, appointments, and care notes together. Review all scanned document details before saving.</p>
+      </article>
 
-  <h3>Sleep tracking</h3>
-  <p>Start a sleep session when your child goes to sleep, then stop it when they wake. Tiny Logger saves the duration and can show sleep trends over time.</p>
+      <article class="card">
+        <h2>Sleep and trends</h2>
+        <p>Start and stop sleep sessions, then view patterns alongside growth and other care trends over time.</p>
+      </article>
 
+      <article class="card">
+        <h2>Journal and milestones</h2>
+        <p>Save photos, notes, and special milestones while keeping routine care records in History.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Ask Okkle</h2>
+      <p>
+        Ask Okkle can help find information in your saved care records,
+        assist with app actions, and provide general source-based health
+        information. It is not a doctor, does not diagnose or prescribe,
+        and should not be relied on for urgent medical decisions.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Privacy, sharing, and export</h2>
+      <p>
+        Each child has separate records. You control optional features such
+        as photos, camera, notifications, location, Apple Health, Apple Watch,
+        caregiver sharing, and data export. When exporting, you can choose the
+        child and categories to include.
+      </p>
+      <p><a href="./">Read the Privacy Policy →</a></p>
+    </section>
+
+    <section class="card">
+      <h2>Troubleshooting</h2>
+
+      <h3>My data is not appearing</h3>
+      <p>Confirm that the correct child profile is selected, then restart the app. If you use iCloud sync, check that it is enabled on the device.</p>
+
+      <h3>A document scan is incorrect</h3>
+      <p>Use a clear, well-lit image with all text visible. Always review and amend the recognised details before confirming.</p>
+
+      <h3>Reminders are not arriving</h3>
+      <p>Check iPhone Settings → Notifications → Tiny Logger, then confirm that the relevant reminder is enabled in the app.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contact us</h2>
+      <p>
+        Email <a href="mailto:admin@okklelab.com">admin@okklelab.com</a>.
+        Please include your device model, iOS version, and a short description
+        of the issue. Do not send sensitive child health information by email.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Motonari Shiga. All rights reserved.
+  </footer>
+</body>
+</html>
   <h3>Health records</h3>
   <p>Store allergies, medications, vaccinations, appointments, and care notes. You can use the camera or photo library to capture documents, then review and confirm extracted details before anything is saved.</p>
 
