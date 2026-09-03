@@ -3,18 +3,410 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-    name="description"
-    content="Tiny Logger helps families see what matters next, log care quickly, and keep childhood moments together."
-  >
+  <meta name="description" content="Tiny Logger helps families see what matters next, log care quickly, and keep childhood moments together.">
   <title>Tiny Logger — Every little moment, together</title>
-  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    :root {
+      --ink: #191727;
+      --muted: #706d7e;
+      --purple: #6258e9;
+      --purple-dark: #4b42cd;
+      --lavender: #eeecff;
+      --surface: rgba(255, 255, 255, .78);
+      --line: rgba(49, 43, 83, .10);
+      --shadow: 0 24px 60px rgba(67, 57, 128, .14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 4%, #eeeaff 0, transparent 29rem),
+        radial-gradient(circle at 92% 23%, #ffe9ed 0, transparent 29rem),
+        #f8f8fc;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 19px;
+      font-weight: 760;
+      letter-spacing: -.03em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #565164;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .site-nav a:hover,
+    .footer-links a:hover {
+      color: var(--purple);
+    }
+
+    .home-main {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .home-hero {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 435px);
+      align-items: center;
+      gap: clamp(36px, 8vw, 110px);
+      padding: 54px 28px 96px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 24px;
+      font-size: clamp(50px, 7vw, 82px);
+      line-height: .99;
+      letter-spacing: -.067em;
+    }
+
+    h1 em {
+      color: var(--purple);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -.075em;
+    }
+
+    .hero-lead {
+      max-width: 540px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 21px);
+      line-height: 1.52;
+      letter-spacing: -.02em;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 17px;
+      color: white;
+      background: linear-gradient(135deg, #7369f6, #574cdf);
+      box-shadow: 0 12px 25px rgba(91, 78, 220, .27);
+      font-size: 16px;
+      font-weight: 720;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(91, 78, 220, .32);
+    }
+
+    .hero-note {
+      margin: 16px 0 0;
+      color: #8b8799;
+      font-size: 14px;
+    }
+
+    .phone-frame {
+      overflow: hidden;
+      border: 10px solid #252331;
+      border-radius: 48px;
+      background: #252331;
+      box-shadow:
+        0 38px 60px rgba(39, 34, 71, .28),
+        0 0 0 1px rgba(255, 255, 255, .4) inset;
+    }
+
+    .phone-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 38px;
+    }
+
+    .hero-phone {
+      max-width: 410px;
+      justify-self: center;
+      transform: rotate(4deg);
+    }
+
+    .how-it-helps {
+      padding: 106px 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(34px, 4.5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -.055em;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      border-radius: 25px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .38);
+    }
+
+    .feature-item {
+      min-height: 220px;
+      padding: 35px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .55);
+    }
+
+    .feature-item:nth-child(1),
+    .feature-item:nth-child(4) {
+      background: rgba(239, 236, 255, .72);
+    }
+
+    .feature-number {
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .feature-item h3 {
+      margin-bottom: 10px;
+      font-size: 23px;
+      letter-spacing: -.04em;
+    }
+
+    .feature-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.48;
+    }
+
+    .product-screen-section {
+      padding: 96px 28px;
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(280px, .72fr);
+      align-items: center;
+      gap: clamp(44px, 8vw, 110px);
+    }
+
+    .product-screen-copy p:not(.eyebrow) {
+      max-width: 470px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .product-phone {
+      max-width: 350px;
+      justify-self: center;
+      transform: rotate(-3deg);
+    }
+
+    .promise-strip {
+      margin: 0 0 100px;
+      padding: 33px 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(99, 88, 225, .16);
+      border-radius: 25px;
+      background: linear-gradient(120deg, rgba(233, 229, 255, .9), rgba(255, 249, 250, .9));
+    }
+
+    .promise-strip p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: -.02em;
+    }
+
+    .promise-strip a {
+      flex: none;
+      color: var(--purple);
+      font-size: 15px;
+      font-weight: 750;
+    }
+
+    .site-footer {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 30px 0 42px;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 32px;
+      border-top: 1px solid var(--line);
+      color: #777284;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      font-weight: 650;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        width: min(100% - 28px, 1200px);
+        min-height: 74px;
+      }
+
+      .site-nav {
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .site-nav a:first-child {
+        display: none;
+      }
+
+      .home-main {
+        width: min(100% - 28px, 1200px);
+      }
+
+      .home-hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding: 56px 5px 80px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: clamp(45px, 13vw, 64px);
+      }
+
+      .hero-lead {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero-phone {
+        width: min(77vw, 340px);
+        margin-top: 16px;
+        transform: rotate(2.5deg);
+      }
+
+      .how-it-helps,
+      .product-screen-section {
+        padding: 70px 5px;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-item {
+        min-height: auto;
+        padding: 27px 24px;
+      }
+
+      .product-screen-section {
+        grid-template-columns: 1fr;
+      }
+
+      .product-screen-copy {
+        text-align: center;
+      }
+
+      .product-screen-copy p:not(.eyebrow) {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .product-phone {
+        width: min(73vw, 310px);
+        transform: rotate(-2deg);
+      }
+
+      .promise-strip {
+        margin-bottom: 65px;
+        padding: 28px 24px;
+        display: block;
+      }
+
+      .promise-strip a {
+        display: inline-block;
+        margin-top: 14px;
+      }
+
+      .site-footer {
+        width: min(100% - 28px, 1200px);
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
 </head>
 
-<body class="home-page">
+<body>
   <header class="site-header">
     <a class="brand" href="./index.html" aria-label="Tiny Logger home">
-      <img src="./tiny-logger-icon.png" alt="" class="brand-mark">
+      <img class="brand-mark" src="./tiny-logger-icon.png" alt="">
       <span>Tiny Logger</span>
     </a>
 
@@ -27,7 +419,7 @@
 
   <main class="home-main">
     <section class="home-hero">
-      <div class="hero-copy">
+      <div>
         <p class="eyebrow">Coming soon</p>
         <h1>Every little moment, <em>held together.</em></h1>
         <p class="hero-lead">
@@ -35,6 +427,96 @@
           seconds, and keep a child’s story together—privately.
         </p>
 
+        <a class="primary-button" href="mailto:admin@okklelab.com?subject=Tiny%20Logger%20release%20notification">
+          Get notified when we launch
+        </a>
+
+        <p class="hero-note">A calm, thoughtful companion for everyday family care.</p>
+      </div>
+
+      <div class="phone-frame hero-phone">
+        <img src="./app-preview.png" alt="Tiny Logger app showing family care tools">
+      </div>
+    </section>
+
+    <section id="features" class="how-it-helps">
+      <div class="section-heading">
+        <p class="eyebrow">One calm home for family care</p>
+        <h2>Everything you need, without the clutter.</h2>
+      </div>
+
+      <div class="feature-list">
+        <article class="feature-item">
+          <span class="feature-number">01</span>
+          <div>
+            <h3>Know what matters next</h3>
+            <p>Helpful prompts bring care, appointments, weather and restocks into one clear view.</p>
+          </div>
+        </article>
+
+        <article class="feature-item">
+          <span class="feature-number">02</span>
+          <div>
+            <h3>Log in a moment</h3>
+            <p>Capture feeds, sleep, nappies, pumping, growth and more with one hand.</p>
+          </div>
+        </article>
+
+        <article class="feature-item">
+          <span class="feature-number">03</span>
+          <div>
+            <h3>Keep the story</h3>
+            <p>Save the photos, notes and milestones that make up your child’s unique story.</p>
+          </div>
+        </article>
+
+        <article class="feature-item">
+          <span class="feature-number">04</span>
+          <div>
+            <h3>Private, on your terms</h3>
+            <p>Your family’s records stay under your control, with optional sharing when you choose it.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="product-screen-section">
+      <div class="product-screen-copy">
+        <p class="eyebrow">A little more clarity</p>
+        <h2>Less data to interpret. More confidence about what to do next.</h2>
+        <p>
+          Today turns the care you choose to log into a useful view: what is
+          coming up, what needs attention, and what can wait.
+        </p>
+      </div>
+
+      <div class="phone-frame product-phone">
+        <img src="./today-preview.png" alt="Tiny Logger Today screen showing next care actions and reminders">
+      </div>
+    </section>
+
+    <section class="promise-strip">
+      <p>Made for real family life. Built to be calm, useful and private.</p>
+      <a href="./privacy.html">Read our privacy approach</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="./index.html">
+      <img class="brand-mark" src="./tiny-logger-icon.png" alt="">
+      <span>Tiny Logger</span>
+    </a>
+
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./support.html">Support</a>
+      <a href="mailto:admin@okklelab.com">Contact</a>
+    </div>
+
+    <p>© 2026 Okkle Lab. All rights reserved.</p>
+  </footer>
+</body>
+</html>
         <a class="primary-button" href="mailto:admin@okklelab.com?subject=Tiny%20Logger%20release%20notification">
           Get notified when we launch
         </a>
