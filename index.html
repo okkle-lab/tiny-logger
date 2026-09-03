@@ -11,11 +11,7 @@
       --ink: #191727;
       --muted: #706d7e;
       --purple: #6258e9;
-      --purple-dark: #4b42cd;
-      --lavender: #eeecff;
-      --surface: rgba(255, 255, 255, .78);
       --line: rgba(49, 43, 83, .10);
-      --shadow: 0 24px 60px rgba(67, 57, 128, .14);
     }
 
     * { box-sizing: border-box; }
@@ -26,7 +22,7 @@
       margin: 0;
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-        "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+        "Helvetica Neue", Arial, sans-serif;
       background:
         radial-gradient(circle at 12% 4%, #eeeaff 0, transparent 29rem),
         radial-gradient(circle at 92% 23%, #ffe9ed 0, transparent 29rem),
@@ -38,9 +34,14 @@
       text-decoration: none;
     }
 
-    .site-header {
+    .site-header,
+    .home-main,
+    .site-footer {
       width: min(1200px, calc(100% - 40px));
       margin: 0 auto;
+    }
+
+    .site-header {
       min-height: 88px;
       display: flex;
       align-items: center;
@@ -66,7 +67,6 @@
 
     .site-nav {
       display: flex;
-      align-items: center;
       gap: 24px;
       color: #565164;
       font-size: 15px;
@@ -78,15 +78,10 @@
       color: var(--purple);
     }
 
-    .home-main {
-      width: min(1200px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
     .home-hero {
       min-height: 690px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 435px);
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
       align-items: center;
       gap: clamp(36px, 8vw, 110px);
       padding: 54px 28px 96px;
@@ -101,7 +96,9 @@
       text-transform: uppercase;
     }
 
-    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
 
     h1 {
       max-width: 650px;
@@ -129,9 +126,9 @@
 
     .primary-button {
       display: inline-flex;
+      min-height: 54px;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
       padding: 0 22px;
       border-radius: 17px;
       color: white;
@@ -139,12 +136,6 @@
       box-shadow: 0 12px 25px rgba(91, 78, 220, .27);
       font-size: 16px;
       font-weight: 720;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .primary-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(91, 78, 220, .32);
     }
 
     .hero-note {
@@ -171,7 +162,7 @@
     }
 
     .hero-phone {
-      max-width: 410px;
+      max-width: 400px;
       justify-self: center;
       transform: rotate(4deg);
     }
@@ -182,7 +173,7 @@
     }
 
     .section-heading {
-      max-width: 640px;
+      max-width: 650px;
       margin-bottom: 48px;
     }
 
@@ -196,22 +187,20 @@
     .feature-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-      border-radius: 25px;
       overflow: hidden;
-      background: rgba(255, 255, 255, .38);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      background: rgba(255, 255, 255, .45);
     }
 
     .feature-item {
       min-height: 220px;
-      padding: 35px;
       display: flex;
-      align-items: flex-start;
       gap: 20px;
+      padding: 35px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      background: rgba(255, 255, 255, .55);
+      background: rgba(255, 255, 255, .56);
     }
 
     .feature-item:nth-child(1),
@@ -239,28 +228,6 @@
       line-height: 1.48;
     }
 
-    .product-screen-section {
-      padding: 96px 28px;
-      display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(280px, .72fr);
-      align-items: center;
-      gap: clamp(44px, 8vw, 110px);
-    }
-
-    .product-screen-copy p:not(.eyebrow) {
-      max-width: 470px;
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-size: 19px;
-      line-height: 1.55;
-    }
-
-    .product-phone {
-      max-width: 350px;
-      justify-self: center;
-      transform: rotate(-3deg);
-    }
-
     .promise-strip {
       margin: 0 0 100px;
       padding: 33px 38px;
@@ -277,7 +244,6 @@
       margin: 0;
       font-size: 18px;
       font-weight: 650;
-      letter-spacing: -.02em;
     }
 
     .promise-strip a {
@@ -288,13 +254,11 @@
     }
 
     .site-footer {
-      width: min(1200px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 30px 0 42px;
       display: grid;
       grid-template-columns: 1fr auto auto;
       align-items: center;
       gap: 32px;
+      padding: 30px 0 42px;
       border-top: 1px solid var(--line);
       color: #777284;
       font-size: 13px;
@@ -311,8 +275,13 @@
     }
 
     @media (max-width: 760px) {
-      .site-header {
+      .site-header,
+      .home-main,
+      .site-footer {
         width: min(100% - 28px, 1200px);
+      }
+
+      .site-header {
         min-height: 74px;
       }
 
@@ -323,10 +292,6 @@
 
       .site-nav a:first-child {
         display: none;
-      }
-
-      .home-main {
-        width: min(100% - 28px, 1200px);
       }
 
       .home-hero {
@@ -351,8 +316,7 @@
         transform: rotate(2.5deg);
       }
 
-      .how-it-helps,
-      .product-screen-section {
+      .how-it-helps {
         padding: 70px 5px;
       }
 
@@ -365,28 +329,10 @@
         padding: 27px 24px;
       }
 
-      .product-screen-section {
-        grid-template-columns: 1fr;
-      }
-
-      .product-screen-copy {
-        text-align: center;
-      }
-
-      .product-screen-copy p:not(.eyebrow) {
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .product-phone {
-        width: min(73vw, 310px);
-        transform: rotate(-2deg);
-      }
-
       .promise-strip {
+        display: block;
         margin-bottom: 65px;
         padding: 28px 24px;
-        display: block;
       }
 
       .promise-strip a {
@@ -395,7 +341,6 @@
       }
 
       .site-footer {
-        width: min(100% - 28px, 1200px);
         grid-template-columns: 1fr;
         gap: 20px;
       }
@@ -422,6 +367,7 @@
       <div>
         <p class="eyebrow">Coming soon</p>
         <h1>Every little moment, <em>held together.</em></h1>
+
         <p class="hero-lead">
           Tiny Logger helps parents see what matters next, capture care in
           seconds, and keep a child’s story together—privately.
@@ -435,7 +381,10 @@
       </div>
 
       <div class="phone-frame hero-phone">
-        <img src="./app-preview.png" alt="Tiny Logger app showing family care tools">
+        <img
+          src="./today-preview.png"
+          alt="Tiny Logger Today screen showing next care actions and reminders"
+        >
       </div>
     </section>
 
@@ -477,21 +426,6 @@
             <p>Your family’s records stay under your control, with optional sharing when you choose it.</p>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section class="product-screen-section">
-      <div class="product-screen-copy">
-        <p class="eyebrow">A little more clarity</p>
-        <h2>Less data to interpret. More confidence about what to do next.</h2>
-        <p>
-          Today turns the care you choose to log into a useful view: what is
-          coming up, what needs attention, and what can wait.
-        </p>
-      </div>
-
-      <div class="phone-frame product-phone">
-        <img src="./today-preview.png" alt="Tiny Logger Today screen showing next care actions and reminders">
       </div>
     </section>
 
@@ -514,134 +448,6 @@
     </div>
 
     <p>© 2026 Okkle Lab. All rights reserved.</p>
-  </footer>
-</body>
-</html>
-        <a class="primary-button" href="mailto:admin@okklelab.com?subject=Tiny%20Logger%20release%20notification">
-          Get notified when we launch
-        </a>
-
-        <p class="hero-note">A calm, thoughtful companion for everyday family care.</p>
-      </div>
-
-      <div class="phone-frame hero-phone">
-        <img
-          src="./app-preview.png"
-          alt="Tiny Logger app showing care, logging, journal and health tools"
-        >
-      </div>
-    </section>
-
-    <section id="features" class="how-it-helps">
-      <div class="section-heading">
-        <p class="eyebrow">One calm home for family care</p>
-        <h2>Everything you need, without the clutter.</h2>
-      </div>
-
-      <div class="feature-list">
-        <article class="feature-item">
-          <span class="feature-number">01</span>
-          <div>
-            <h3>Know what matters next</h3>
-            <p>Helpful prompts bring care, appointments, weather and restocks into one clear view.</p>
-          </div>
-        </article>
-
-        <article class="feature-item">
-          <span class="feature-number">02</span>
-          <div>
-            <h3>Log in a moment</h3>
-            <p>Capture feeds, sleep, nappies, pumping, growth and more with one hand.</p>
-          </div>
-        </article>
-
-        <article class="feature-item">
-          <span class="feature-number">03</span>
-          <div>
-            <h3>Keep the story</h3>
-            <p>Save the photos, notes and milestones that make up your child’s unique story.</p>
-          </div>
-        </article>
-
-        <article class="feature-item">
-          <span class="feature-number">04</span>
-          <div>
-            <h3>Private, on your terms</h3>
-            <p>Your family’s records stay under your control, with optional sharing when you choose it.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="product-screen-section">
-      <div class="product-screen-copy">
-        <p class="eyebrow">A little more clarity</p>
-        <h2>Less data to interpret. More confidence about what to do next.</h2>
-        <p>
-          Today turns the care you choose to log into a simple, useful view:
-          what is coming up, what needs attention, and what can wait.
-        </p>
-      </div>
-
-      <div class="phone-frame product-phone">
-        <img
-          src="./today-preview.png"
-          alt="Tiny Logger Today screen showing the next care action and reminders"
-        >
-      </div>
-    </section>
-
-    <section class="promise-strip">
-      <p>
-        Made for real family life. Built to be calm, useful and private.
-      </p>
-      <a href="./privacy.html">Read our privacy approach</a>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <a class="brand" href="./index.html">
-      <img src="./tiny-logger-icon.png" alt="" class="brand-mark">
-      <span>Tiny Logger</span>
-    </a>
-
-    <div class="footer-links">
-      <a href="./privacy.html">Privacy</a>
-      <a href="./support.html">Support</a>
-      <a href="mailto:admin@okklelab.com">Contact</a>
-    </div>
-
-    <p>© 2026 Okkle Lab. All rights reserved.</p>
-  </footer>
-</body>
-</html>        <div class="orb orb-one"></div><div class="orb orb-two"></div>
-        <div class="phone-frame"><img src="./today-preview.png" alt="Tiny Logger app preview showing care reminders, weather, a health visit and an essentials reminder"></div>
-      </div>
-    </section>
-
-    <section class="care-summary" aria-label="Tiny Logger at a glance">
-      <div><p class="home-eyebrow">One calm home for family care</p><h2>Everything you need, without the clutter.</h2></div>
-      <div class="help-list">
-        <article><span>01</span><div><h3>Care, timed naturally</h3><p>Log breast or bottle feeds, food, nappies, pumping and sleep. Timers help with feeds and awake windows when timing matters.</p></div></article>
-        <article><span>02</span><div><h3>Health records that stay useful</h3><p>Keep medicines, allergies, vaccinations, growth and appointments together—and see what is coming up when you need it.</p></div></article>
-        <article><span>03</span><div><h3>Essentials that don’t run out unnoticed</h3><p>Track household essentials and get a gentle restock nudge based on your own use.</p></div></article>
-        <article><span>04</span><div><h3>A journal worth coming back to</h3><p>Save photos, milestones and everyday thoughts alongside the practical records of family life.</p></div></article>
-      </div>
-    </section>
-
-    <section class="product-screen-section">
-      <p class="home-eyebrow">A little more clarity in the middle of the day</p>
-      <h2>A dashboard that helps you decide what to do next.</h2>
-      <p>Rather than a stream of data, Today brings together relevant care timing, appointments, weather guidance and restock reminders in one glance.</p>
-      <img class="wide-product-screen" src="./today-preview.png" alt="Tiny Logger Today view showing a pumping reminder, weather, a vaccination, health visitor check-up and nappy restock reminder">
-    </section>
-
-    <section class="promise-strip"><p>Made with care for the busy, beautiful mess of family life.</p><a href="./privacy.html">Read our privacy promise <span>→</span></a></section>
-  </main>
-
-  <footer class="site-footer">
-    <span>© 2026 Motonari Shiga. All rights reserved.</span>
-    <span><a href="./privacy.html">Privacy</a><a href="./support.html">Support</a><a href="mailto:admin@okklelab.com">Contact</a></span>
   </footer>
 </body>
 </html>
