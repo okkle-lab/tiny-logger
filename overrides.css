@@ -104,3 +104,12 @@ same filename, so no HTML/CSS changes needed, just swap the file content.
 No other files reference the old icon — it's only pulled in via:
   <img class="brand-logo" src="./tiny-logger-icon.png" alt="">
 in the shared <header> markup used by index.html, privacy.html and support.html.
+@media (max-width: 400px) {
+  .site-header nav {
+    gap: 10px;
+    font-size: 12px;
+  }
+  .brand span {
+    font-size: 16px;
+  }
+}
