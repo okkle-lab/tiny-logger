@@ -17,6 +17,7 @@
 - [Home](https://okkle-lab.github.io/tiny-logger/)
 - [FAQ](https://okkle-lab.github.io/tiny-logger/faq.html)
 - [What to bring to a health visitor appointment](https://okkle-lab.github.io/tiny-logger/health-visitor.html)
+- [Tiny Logger vs Huckleberry vs Baby Tracker](https://okkle-lab.github.io/tiny-logger/compare.html)
 - [Privacy](https://okkle-lab.github.io/tiny-logger/privacy.html)
 - [Support](https://okkle-lab.github.io/tiny-logger/support.html)
 - [App Store](https://apps.apple.com/gb/app/tiny-logger/id6794941378)
