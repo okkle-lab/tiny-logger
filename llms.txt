@@ -1,0 +1,22 @@
+# Tiny Logger
+
+> Tiny Logger ("Tiny Logger: Baby Tracker" on the App Store) is a free, private baby tracker and family care app for iPhone and iPad, made by Motonari Shiga under the Okkle Lab name. It is not affiliated with Tinylog, Tiny Tracker or any developer logging library called "tiny logger".
+
+- Price: free, no subscription, no in-app purchases, no adverts. Market has optional product links, some of which earn a commission.
+- Devices: iPhone and iPad, iOS 17 or later. Not on Mac or Android. English only for now.
+- Logs: breastfeeding with left and right sides, bottle feeds (breast milk or formula), pumping, sleep and age-based awake windows, nappies with colour and consistency, solids, vitamins, tummy time, weight and height.
+- Records: medicines, allergies, vaccinations with reminders, appointments with questions, care notes, photos and a journal.
+- Children: a separate profile for each child, including twins and siblings, set to baby, toddler or child.
+- Family: optional private iCloud sharing with partners, grandparents or a nanny, with per-person view and edit choices.
+- Privacy: records stay on the user's devices and their own iCloud; data is never sold; Apple Health access is optional and read-only.
+- Export and import: PDF health summary for a GP or health visitor; import from Huckleberry and Nara Baby.
+- Guidance: UK and US, including NHS sleep guidance and WHO or CDC growth charts. Not a medical service and does not diagnose.
+
+## Links
+
+- [Home](https://okkle-lab.github.io/tiny-logger/)
+- [FAQ](https://okkle-lab.github.io/tiny-logger/faq.html)
+- [What to bring to a health visitor appointment](https://okkle-lab.github.io/tiny-logger/health-visitor.html)
+- [Privacy](https://okkle-lab.github.io/tiny-logger/privacy.html)
+- [Support](https://okkle-lab.github.io/tiny-logger/support.html)
+- [App Store](https://apps.apple.com/gb/app/tiny-logger/id6794941378)
