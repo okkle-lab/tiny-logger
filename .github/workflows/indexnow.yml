@@ -1,0 +1,19 @@
+# Tells Bing (and other IndexNow search engines) about every page after
+# each update, once GitHub Pages has had time to publish it.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for GitHub Pages
+        run: sleep 90
+      - name: Submit sitemap URLs
+        run: |
+          URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's/<loc>//' -e 's#</loc>##' | python3 -c 'import sys,json; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          BODY=$(printf '{"host":"okkle-lab.github.io","key":"a11a3bbaea61427bd8c80a556dbe55aa","keyLocation":"https://okkle-lab.github.io/tiny-logger/a11a3bbaea61427bd8c80a556dbe55aa.txt","urlList":%s}' "$URLS")
+          curl -sS -o /dev/null -w "IndexNow responded %{http_code}\n" -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY"

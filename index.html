@@ -21,51 +21,87 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "Tiny Logger",
-  "alternateName": "Tiny Logger: Baby Tracker",
-  "description": "Free, private baby tracker and family care app for iPhone and iPad. Log feeds, breastfeeding, pumping, sleep and awake windows, nappies, solids, growth, medicines, allergies, vaccinations and appointments for each child, and share with family through iCloud.",
-  "operatingSystem": "iOS 17 or later (iPhone and iPad)",
-  "applicationCategory": "HealthApplication",
-  "inLanguage": "en",
-  "url": "https://okkle-lab.github.io/tiny-logger/",
-  "downloadUrl": "https://apps.apple.com/gb/app/tiny-logger/id6794941378",
-  "installUrl": "https://apps.apple.com/gb/app/tiny-logger/id6794941378",
-  "sameAs": [
-    "https://apps.apple.com/gb/app/tiny-logger/id6794941378"
-  ],
-  "image": "https://okkle-lab.github.io/tiny-logger/tiny-logger-icon.png",
-  "screenshot": "https://okkle-lab.github.io/tiny-logger/today-preview.png",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "GBP"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Motonari Shiga"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Okkle Lab",
-    "email": "admin@okklelab.com",
-    "url": "https://okkle-lab.github.io/tiny-logger/"
-  },
-  "featureList": [
-    "Breastfeeding timer with left and right sides",
-    "Bottle feeds with breast milk or formula",
-    "Pumping log",
-    "Sleep timer and age-based awake windows",
-    "Nappy log with colour and consistency",
-    "Solids, vitamins and tummy time",
-    "Weight and height on WHO or CDC growth charts",
-    "Medicines, allergies and vaccinations with reminders",
-    "Appointments with questions to ask",
-    "Separate profile for each child, including twins and siblings",
-    "Private iCloud sharing with partners and carers",
-    "PDF health summary export",
-    "Import from Huckleberry and Nara Baby",
-    "Widgets, Live Activities and Siri Shortcuts"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://okkle-lab.github.io/tiny-logger/#org",
+      "name": "Okkle Lab",
+      "url": "https://okkle-lab.github.io/tiny-logger/",
+      "email": "admin@okklelab.com",
+      "logo": "https://okkle-lab.github.io/tiny-logger/tiny-logger-icon.png",
+      "founder": {
+        "@id": "https://okkle-lab.github.io/tiny-logger/#founder"
+      },
+      "sameAs": [
+        "https://apps.apple.com/gb/developer/motonari-shiga/id6785053794"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://okkle-lab.github.io/tiny-logger/#founder",
+      "name": "Motonari Shiga",
+      "worksFor": {
+        "@id": "https://okkle-lab.github.io/tiny-logger/#org"
+      },
+      "sameAs": [
+        "https://apps.apple.com/gb/developer/motonari-shiga/id6785053794"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://okkle-lab.github.io/tiny-logger/#site",
+      "name": "Tiny Logger",
+      "url": "https://okkle-lab.github.io/tiny-logger/",
+      "publisher": {
+        "@id": "https://okkle-lab.github.io/tiny-logger/#org"
+      },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "Tiny Logger",
+      "alternateName": "Tiny Logger: Baby Tracker",
+      "description": "Free, private baby tracker and family care app for iPhone and iPad. Log feeds, breastfeeding, pumping, sleep and awake windows, nappies, solids, growth, medicines, allergies, vaccinations and appointments for each child, and share with family through iCloud.",
+      "operatingSystem": "iOS 17 or later (iPhone and iPad)",
+      "applicationCategory": "HealthApplication",
+      "inLanguage": "en",
+      "url": "https://okkle-lab.github.io/tiny-logger/",
+      "downloadUrl": "https://apps.apple.com/gb/app/tiny-logger/id6794941378",
+      "installUrl": "https://apps.apple.com/gb/app/tiny-logger/id6794941378",
+      "sameAs": [
+        "https://apps.apple.com/gb/app/tiny-logger/id6794941378"
+      ],
+      "image": "https://okkle-lab.github.io/tiny-logger/tiny-logger-icon.png",
+      "screenshot": "https://okkle-lab.github.io/tiny-logger/today-preview.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "author": {
+        "@id": "https://okkle-lab.github.io/tiny-logger/#founder"
+      },
+      "publisher": {
+        "@id": "https://okkle-lab.github.io/tiny-logger/#org"
+      },
+      "featureList": [
+        "Breastfeeding timer with left and right sides",
+        "Bottle feeds with breast milk or formula",
+        "Pumping log",
+        "Sleep timer and age-based awake windows",
+        "Nappy log with colour and consistency",
+        "Solids, vitamins and tummy time",
+        "Weight and height on WHO or CDC growth charts",
+        "Medicines, allergies and vaccinations with reminders",
+        "Appointments with questions to ask",
+        "Separate profile for each child, including twins and siblings",
+        "Private iCloud sharing with partners and carers",
+        "PDF health summary export",
+        "Import from Huckleberry and Nara Baby",
+        "Widgets, Live Activities and Siri Shortcuts"
+      ],
+      "@id": "https://okkle-lab.github.io/tiny-logger/#app"
+    }
   ]
 }
   </script>
@@ -224,7 +260,7 @@
       <div class="choosing-links">
         <a href="./faq.html"><strong>Questions parents ask</strong><span>Price, sharing, privacy, more than one child</span></a>
         <a href="./compare.html"><strong>Compare apps</strong><span>Tiny Logger, Huckleberry and Baby Tracker</span></a>
-        <a href="./health-visitor.html"><strong>Health visitor guide</strong><span>What to bring, and how to show it</span></a>
+        <a href="./guides.html"><strong>Guides for the early days</strong><span>Nappies, mixed feeding, appointments, twins</span></a>
       </div>
     </section>
 
@@ -243,7 +279,7 @@
     <div class="footer-links">
       <a href="./index.html">Home</a>
       <a href="./faq.html">FAQ</a>
-      <a href="./health-visitor.html">Health visitor guide</a><a href="./compare.html">Compare apps</a>
+      <a href="./guides.html">Guides</a><a href="./compare.html">Compare apps</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./support.html">Support</a>
       <a href="mailto:admin@okklelab.com">Contact</a>

@@ -78,3 +78,11 @@
 @media (max-width:860px){.guide-page .guide-layout,.guide-page .faq-layout{grid-template-columns:1fr}}
 @media (max-width:760px){.guide-page{--inset:27px}}
 @media (max-width:400px){.guide-page{--inset:6px}}
+
+/* Guides hub: one card per guide. */
+.guide-list{grid-template-columns:repeat(2,1fr)}
+.guide-list a{display:block;padding:22px;border-radius:22px;background:var(--surface);box-shadow:inset 0 0 0 1px #e7e3f3}
+.guide-list a:hover{box-shadow:inset 0 0 0 1.5px rgba(98,88,233,.45)}
+.guide-list strong{display:block;margin-bottom:6px;font-size:19px;letter-spacing:-.025em}
+.guide-list span{color:var(--muted);font-size:15.5px;line-height:1.5}
+@media (max-width:760px){.guide-list{grid-template-columns:1fr}}
