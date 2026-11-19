@@ -77,10 +77,6 @@ body{background:#fbfaff}
   .information-page .info-hero h1{font-size:39px}
   .information-page .info-hero>p{font-size:17px}
 }
-=== Fix 1: cramped mobile nav ===
-File: overrides.css
-Action: ADD this new block at the very end of the file (don't remove anything else)
-
 @media (max-width: 400px) {
   .site-header nav {
     gap: 10px;
@@ -91,25 +87,10 @@ Action: ADD this new block at the very end of the file (don't remove anything el
   }
 }
 
-=== Fix 2: outdated logo icon ===
-The image at tiny-logger-icon.png (used in the site's <header> and referenced
-by CSS as .brand-logo) shows a glass-bubble "person" mark — not the parcel
-icon your app currently uses.
-
-To fix: export your current app icon (the same PNG already sitting at
-ios/Okkle/Images.xcassets/AppIcon.appiconset/App-Icon-1024x1024@1x.png in the
-app repo) and replace tiny-logger-icon.png in the website repo with it —
-same filename, so no HTML/CSS changes needed, just swap the file content.
-
-No other files reference the old icon — it's only pulled in via:
-  <img class="brand-logo" src="./tiny-logger-icon.png" alt="">
-in the shared <header> markup used by index.html, privacy.html and support.html.
-@media (max-width: 400px) {
-  .site-header nav {
-    gap: 10px;
-    font-size: 12px;
-  }
-  .brand span {
-    font-size: 16px;
-  }
-}
+/* The hero bleeds past the content column by design; keep the page itself
+   from scrolling sideways. Footer links wrap once there are more of them. */
+html,body{overflow-x:clip}
+.footer-links{flex-wrap:wrap;row-gap:10px}
+.site-footer{grid-template-columns:auto 1fr auto}
+.site-footer .footer-links{justify-content:center}
+@media (max-width:1000px){.site-footer{grid-template-columns:1fr;gap:18px}.site-footer .footer-links{justify-content:flex-start}}
